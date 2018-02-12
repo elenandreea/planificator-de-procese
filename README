@@ -1,0 +1,54 @@
+Planificator de procese 
+
+Am structurat programul in 5 functii principale ( cele 4 dorite + bonus ).
+Am definit o structura continand campurile necesare : numele alocat static , 
+timpul,prioritatea si cele 2 campuri de toruning si towaiting care vor fi 
+folosite doar pentru bonus pentru a retine cand un proces trebuie pedepsit/
+premiat(aceste campuri sunt initial 0).
+Intrucat operatiile de : add, multiple add , event , waiting sunt aceleasi 
+pentru oricare functie voi trata separat doar comanda tick.
+
+ADD: se citesc din fisier numele procesului, timpul si prioritatea si prin
+intermediul functiei push se adauga intr un nod din coada ready.
+Dupa ADD se executa TICK IMPLICIT.
+
+MULTIPLE ADD: este asemenea comenzii add, doar ca primeste mai multe procese.
+Se ciesc procese pana cand urmatoarea comanda este diferita de numele unui 
+proces. Apoi am folosit fseek() pentru a da cursorul cu o pozitie/2 pozitii 
+inapoi( in caz ca cea de a doua este tot ma)si a reveni la comanda curenta.
+Dupa MULTIPLE ADD se executa TICK IMPLICIT.
+
+EVENT: pentru event am folosit o functie de search primind ca parametrii 
+coada de waiting si numele procesului care urmeaza sa fie scos din waiting 
+si reintrodus in ready.
+Dupa EVENT se executa TICK IMPLICIT.
+
+WAITING: trimite procesul retinut in variabila de tip structura running in 
+coada de waiting.
+Dupa WAITING se executa TICK IMPLICIT. 
+
+TICK: are mai multe utilitati
+FCFS: In cazul in care variabila structura running este goala atunci 
+este extras(functia push) din ready un alt proces.
+In caz contrar, se scade o cuanta de timp din cadrul procesului din running.
+Cand procesul se termina unul nou va fi adaugat in variabila de running.
+
+SJF: diferenta consta in faptul ca in running se va adauga procesul cu cuanta
+cea mai mica. Vom folosi functia search_time pentru a gasi procesul cu cuanta 
+minima si dupa vom folosi din nou search in functie de nume pentru a scoate 
+procesul din ready si a l baga in running.
+
+RR: diferenta consta in faptul ca se initializeaza un contor; atunci cand cuanta 
+atinge contorul procesul este scos si inlocuit.
+
+PP: aici un rol important il are prioritatea. Vom folosi functia search_priority
+pentru a gasi procesul din coada ready cu cea mai mre prioritate si ulterior 
+functia search pentru a l scoate si push pentru a l adauga in running.
+
+BONUSUL foloseste cele doua campuri initializate cu 0 toruning si towaiting care 
+contorizeaza activitatea proceslor trimise/ sosite in waiting si running.
+In functie de acestea se modifica prioritatile proceselor. 
+
+
+
+
