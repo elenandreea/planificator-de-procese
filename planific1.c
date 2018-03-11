@@ -168,13 +168,13 @@ void fcsf(FILE *fisier, FILE *iesire)
 		
 		if(strcmp(comanda,"a")==0) 
 		{
-			//printf("s a citit ADD\n" );
+			//s a citit ADD
 			fscanf(fisier,"%s",nume);
 			fscanf(fisier,"%d",&timp);
 			fscanf(fisier,"%d",&prioritate);
 			push(&ready, nume, timp, prioritate,torun,towait);
 				
-			//printf("s a primit comanda TICK IMPLICIT\n");	
+			//s a primit comanda TICK IMPLICIT
 			if(running == NULL)
 			{	
 				if(ready != NULL)
@@ -200,7 +200,7 @@ void fcsf(FILE *fisier, FILE *iesire)
 		
 		if(strcmp(comanda,"t")==0)
 		{	
-			//printf("s a citit comanda TICK EXPLICIT\n");
+			//s a citit comanda TICK EXPLICIT
 			if(running == NULL)
 			{
 				if(ready != NULL)
@@ -226,7 +226,7 @@ void fcsf(FILE *fisier, FILE *iesire)
 	
 		if(strcmp(comanda,"s")==0)
 		{
-			//printf("s a citit comanda SHOW\n");
+			//s a citit comanda SHOW
 			if(running == NULL)
 			{
 				fprintf(iesire, "\n");
@@ -240,7 +240,7 @@ void fcsf(FILE *fisier, FILE *iesire)
 	
 		if(strcmp(comanda,"w")==0)
 		{	
-			//printf("s a citit comanda WAITING\n");
+			//s a citit comanda WAITING
 			push(&waiting,running->nume,running->timp,running->prioritate,running->toruning,running->towaiting);
 			init(&running);
 
@@ -270,7 +270,7 @@ void fcsf(FILE *fisier, FILE *iesire)
 	
 		if(strcmp(comanda,"e")==0)
 		{
-			//printf("s a citit comanda EVENT\n");
+			//s a citit comanda EVENT
 			fscanf(fisier,"%s",nume);
 			aux = search(&waiting,nume);
 			push(&ready,aux->nume,aux->timp,aux->prioritate,aux->toruning,aux->towaiting);
@@ -300,7 +300,7 @@ void fcsf(FILE *fisier, FILE *iesire)
 
 	 	if(strcmp(comanda,"ma")==0)
 	 	{
-	 		//printf("s a citit MULTIPLE ADD\n" );
+	 		//s a citit MULTIPLE ADD
 	 		fscanf(fisier,"%s",nume);
 	 		while((strcmp(nume,"a")!=0) && strcmp(nume,"s")!=0 && strcmp(nume,"t")!=0 && strcmp(nume,"w")!=0 && strcmp(nume,"e")!=0  )
 	 		{
@@ -315,7 +315,7 @@ void fcsf(FILE *fisier, FILE *iesire)
 	 		else
 	 			fseek(fisier,-1,SEEK_CUR);
 
-	 		//printf("s a primit comanda TICK IMPLICIT\n");	
+	 		//s a primit comanda TICK IMPLICIT
 			if(running == NULL)
 			{	
 				if(ready != NULL)
@@ -366,13 +366,13 @@ void SJF(FILE *fisier, FILE *iesire)
 		
 		if(strcmp(comanda,"a")==0) 
 		{
-			//printf("s a citit ADD\n" );
+			//s a citit ADD
 			fscanf(fisier,"%s",nume);
 			fscanf(fisier,"%d",&timp);
 			fscanf(fisier,"%d",&prioritate);
 			push(&ready, nume, timp, prioritate,torun,towait);
 				
-			//printf("s a primit comanda TICK IMPLICIT\n");	
+			//s a primit comanda TICK IMPLICIT	
 			if(running == NULL)
 			{	
 				if(ready != NULL)
@@ -402,7 +402,7 @@ void SJF(FILE *fisier, FILE *iesire)
 		
 		if(strcmp(comanda,"t")==0)
 		{	
-			//printf("s a citit comanda TICK EXPLICIT\n");
+			//s a citit comanda TICK EXPLICIT
 			if(running == NULL)
 			{
 				if(ready != NULL)
@@ -432,7 +432,7 @@ void SJF(FILE *fisier, FILE *iesire)
 	
 		if(strcmp(comanda,"s")==0)
 		{
-			//printf("s a citit comanda SHOW\n");
+			//s a citit comanda SHOW
 			if(running == NULL)
 			{
 				fprintf(iesire, "\n");
@@ -446,9 +446,9 @@ void SJF(FILE *fisier, FILE *iesire)
 	
 		if(strcmp(comanda,"w")==0)
 		{	
-			//printf("s a citit comanda WAITING\n");
+			//s a citit comanda WAITING
 			push(&waiting,running->nume,running->timp,running->prioritate,running->toruning,running->towaiting);
-			//printf("s a primit tick IMPLICIT cred\n");
+			//s a primit tick IMPLICIT
 			init(&running);
 
 			if(running == NULL)
@@ -480,7 +480,7 @@ void SJF(FILE *fisier, FILE *iesire)
 	
 		if(strcmp(comanda,"e")==0)
 		{
-			//printf("s a citit comanda EVENT\n");
+			//s a citit comanda EVENT
 			fscanf(fisier,"%s",nume);
 			aux = search(&waiting,nume);
 			push(&ready,aux->nume,aux->timp,aux->prioritate,aux->toruning,aux->towaiting);
@@ -514,7 +514,7 @@ void SJF(FILE *fisier, FILE *iesire)
 
 	 	if(strcmp(comanda,"ma")==0)
 	 	{
-	 		printf("s a citit MULTIPLE ADD\n" );
+	 		//s a citit MULTIPLE ADD
 	 		fscanf(fisier,"%s",nume);
 	 		while((strcmp(nume,"a")!=0) && strcmp(nume,"s")!=0 && strcmp(nume,"t")!=0 && strcmp(nume,"w")!=0 && strcmp(nume,"e")!=0  )
 	 		{
@@ -529,7 +529,7 @@ void SJF(FILE *fisier, FILE *iesire)
 	 		else
 	 			fseek(fisier,-1,SEEK_CUR);
 
-	 		//printf("s a primit comanda TICK IMPLICIT\n");	
+	 		//s a primit comanda TICK IMPLICIT
 			if(running == NULL)
 			{	
 				if(ready != NULL)
@@ -585,13 +585,13 @@ void RR(FILE *fisier, FILE *iesire)
 	{
 		if(strcmp(comanda,"a")==0) 
 		{
-			//printf("s a citit ADD\n" );
+			//s a citit ADD
 			fscanf(fisier,"%s",nume);
 			fscanf(fisier,"%d",&timp);
 			fscanf(fisier,"%d",&prioritate);
 			push(&ready, nume, timp, prioritate,torun,towait);
 				
-			//printf("s a primit comanda TICK IMPLICIT\n");	
+			//s a primit comanda TICK IMPLICIT
 			if(running == NULL)
 			{	
 				if(ready != NULL)
@@ -631,7 +631,7 @@ void RR(FILE *fisier, FILE *iesire)
 		
 		if(strcmp(comanda,"t")==0)
 		{	
-			//printf("\ns a citit comanda TICK EXPLICIT\n");
+			//s a citit comanda TICK EXPLICIT
 			if(running == NULL)
 			{
 				if(ready != NULL)
@@ -671,7 +671,7 @@ void RR(FILE *fisier, FILE *iesire)
 	
 		if(strcmp(comanda,"s")==0)
 		{
-			//printf("s a citit comanda SHOW\n");
+			//s a citit comanda SHOW
 			if(running == NULL)
 			{
 				fprintf(iesire, "\n");
@@ -685,9 +685,9 @@ void RR(FILE *fisier, FILE *iesire)
 	
 		if(strcmp(comanda,"w")==0)
 		{	
-			//printf("s a citit comanda WAITING\n");
+			//s a citit comanda WAITING
 			push(&waiting,running->nume,running->timp,running->prioritate,running->toruning,running->towaiting);
-			//printf("s a primit tick IMPLICIT cred\n");
+			//s a primit tick IMPLICIT 
 			init(&running);
 
 			if(running == NULL)
@@ -730,7 +730,7 @@ void RR(FILE *fisier, FILE *iesire)
 	
 		if(strcmp(comanda,"e")==0)
 		{
-			//printf("s a citit comanda EVENT\n");
+			//s a citit comanda EVENT
 			fscanf(fisier,"%s",nume);
 			aux = search(&waiting,nume);
 			push(&ready,aux->nume,aux->timp,aux->prioritate,aux->toruning,aux->towaiting);
@@ -774,7 +774,7 @@ void RR(FILE *fisier, FILE *iesire)
 
 	 	if(strcmp(comanda,"ma")==0)
 	 	{
-	 		//printf("s a citit MULTIPLE ADD\n" );
+	 		//s a citit MULTIPLE ADD
 	 		fscanf(fisier,"%s",nume);
 	 		while((strcmp(nume,"a")!=0) && strcmp(nume,"s")!=0 && strcmp(nume,"t")!=0 && strcmp(nume,"w")!=0 && strcmp(nume,"e")!=0 && strcmp(nume,"ma")!=0 )
 	 		{
@@ -789,7 +789,7 @@ void RR(FILE *fisier, FILE *iesire)
 	 		else
 	 			fseek(fisier,-1,SEEK_CUR);
 
-	 		//printf("\ns a primit comanda TICK IMPLICIT\n");	
+	 		// a primit comanda TICK IMPLICIT	
 			if(running == NULL)
 			{	
 				if(ready != NULL)
@@ -864,7 +864,7 @@ void PP(FILE* fisier, FILE* iesire)
 			fscanf(fisier,"%d",&prioritate);
 			push(&ready, nume, timp, prioritate,torun,towait);
 				
-			//printf("s a primit comanda TICK IMPLICIT\n");	
+			//s a primit comanda TICK IMPLICIT
 			if(running == NULL)
 			{	
 				if(ready != NULL)
@@ -924,7 +924,7 @@ void PP(FILE* fisier, FILE* iesire)
 		
 		if(strcmp(comanda,"t")==0)
 		{	
-			//printf("\ns a citit comanda TICK EXPLICIT\n");
+			//s a citit comanda TICK EXPLICIT
 			if(running == NULL)
 			{
 				if(ready != NULL)
@@ -984,7 +984,7 @@ void PP(FILE* fisier, FILE* iesire)
 	
 		if(strcmp(comanda,"s")==0)
 		{
-			//printf("s a citit comanda SHOW\n");
+			//s a citit comanda SHOW
 			if(running == NULL)
 			{
 				fprintf(iesire, "\n");
@@ -998,9 +998,9 @@ void PP(FILE* fisier, FILE* iesire)
 	
 		if(strcmp(comanda,"w")==0)
 		{	
-			//printf("s a citit comanda WAITING\n");
+			//s a citit comanda WAITING
 			push(&waiting,running->nume,running->timp,running->prioritate,running->toruning,running->towaiting);
-			//printf("s a primit tick IMPLICIT cred\n");
+			//s a primit tick IMPLICIT
 			init(&running);
 
 			if(running == NULL)
@@ -1027,7 +1027,7 @@ void PP(FILE* fisier, FILE* iesire)
 						{
 							temp = search_priority(ready);
 							running = search(&ready,temp->nume);
-							//printf("runing %s\n",running->nume );
+							
 						}
 					}
 					else
@@ -1041,7 +1041,7 @@ void PP(FILE* fisier, FILE* iesire)
 							{
 								temp = search_priority(ready);
 								running = search(&ready,temp->nume);
-								//printf("runing %s\n",running->nume );
+								
 							}
 						}
 						else
@@ -1054,7 +1054,7 @@ void PP(FILE* fisier, FILE* iesire)
 									push(&ready,running->nume,running->timp,running->prioritate,running->toruning,running->towaiting);
 									init(&running);
 									running = search(&ready,temp->nume);
-									//printf("runing %s\n",running->nume );
+									
 								}
 							}
 						}
@@ -1066,7 +1066,7 @@ void PP(FILE* fisier, FILE* iesire)
 	
 		if(strcmp(comanda,"e")==0)
 		{
-			//printf("s a citit comanda EVENT\n");
+			//s a citit comanda EVENT
 			fscanf(fisier,"%s",nume);
 			aux = search(&waiting,nume);
 			push(&ready,aux->nume,aux->timp,aux->prioritate,aux->toruning,aux->towaiting);
@@ -1131,7 +1131,7 @@ void PP(FILE* fisier, FILE* iesire)
 
 	 	if(strcmp(comanda,"ma")==0)
 	 	{
-	 		//printf("s a citit MULTIPLE ADD\n" );
+	 		//s a citit MULTIPLE ADD
 	 		fscanf(fisier,"%s",nume);
 	 		while((strcmp(nume,"a")!=0) && strcmp(nume,"s")!=0 && strcmp(nume,"t")!=0 && strcmp(nume,"w")!=0 && strcmp(nume,"e")!=0 && strcmp(nume,"ma")!=0 )
 	 		{
@@ -1147,7 +1147,7 @@ void PP(FILE* fisier, FILE* iesire)
 	 		else
 	 			fseek(fisier,-1,SEEK_CUR);
 
-	 		//printf("\ns a primit comanda TICK IMPLICIT\n");	
+	 		//s a primit comanda TICK IMPLICIT	
 			if(running == NULL)
 			{	
 				if(ready != NULL)
@@ -1235,13 +1235,13 @@ void bonus(FILE* fisier, FILE* iesire)
 		
 		if(strcmp(comanda,"a")==0) 
 		{
-			//printf("s a citit ADD\n" );
+			//s a citit ADD
 			fscanf(fisier,"%s",nume);
 			fscanf(fisier,"%d",&timp);
 			fscanf(fisier,"%d",&prioritate);
 			push(&ready, nume, timp, prioritate,torun,towait);
 				
-			//printf("s a primit comanda TICK IMPLICIT\n");	
+			//s a primit comanda TICK IMPLICIT
 			if(running == NULL)
 			{	
 				if(ready != NULL)
@@ -1313,7 +1313,7 @@ void bonus(FILE* fisier, FILE* iesire)
 		
 		if(strcmp(comanda,"t")==0)
 		{	
-			//printf("\ns a citit comanda TICK EXPLICIT\n");
+			//s a citit comanda TICK EXPLICIT
 			if(running == NULL)
 			{
 				if(ready != NULL)
@@ -1386,7 +1386,7 @@ void bonus(FILE* fisier, FILE* iesire)
 	
 		if(strcmp(comanda,"s")==0)
 		{
-			//printf("s a citit comanda SHOW\n");
+			//s a citit comanda SHOW
 			if(running == NULL)
 			{
 				fprintf(iesire, "\n");
@@ -1400,7 +1400,7 @@ void bonus(FILE* fisier, FILE* iesire)
 	
 		if(strcmp(comanda,"w")==0)
 		{	
-			//printf("s a citit comanda WAITING\n");
+			//s a citit comanda WAITING
 			running->towaiting++;
 			if(running->towaiting == 2)
 			{
@@ -1482,7 +1482,7 @@ void bonus(FILE* fisier, FILE* iesire)
 	
 		if(strcmp(comanda,"e")==0)
 		{
-			//printf("s a citit comanda EVENT\n");
+			//s a citit comanda EVENT
 			fscanf(fisier,"%s",nume);
 			aux = search(&waiting,nume);
 			push(&ready,aux->nume,aux->timp,aux->prioritate,aux->toruning,aux->towaiting);
@@ -1574,7 +1574,7 @@ void bonus(FILE* fisier, FILE* iesire)
 	 		else
 	 			fseek(fisier,-1,SEEK_CUR);
 
-	 		//printf("\ns a primit comanda TICK IMPLICIT\n");	
+	 		//s a primit comanda TICK IMPLICIT	
 			if(running == NULL)
 			{	
 				if(ready != NULL)
